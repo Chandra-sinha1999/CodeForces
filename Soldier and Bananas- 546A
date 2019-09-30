@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+//#define ll long long int
+long long int sumtill(long long int w,long long int k)
+{
+    long long int sum=0;
+    long long int i=1;
+    while(w--)
+    {
+        sum=sum+(k*i);
+        i++;
+    }
+    return sum;
+}
+int main(void)
+{
+    long long int k,n,w;
+    cin>>k>>n>>w;
+    long long int x= sumtill(w,k);
+    if(x<=n)
+        cout<<"0"<<endl;
+    else
+        cout<<x-n<<endl;
+}
