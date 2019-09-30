@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    ll n;
+    cin>>n;
+    ll a[n],b[n];
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+    ll max=0;
+    ll j;
+    for(ll i=0;i<n;i=j)
+    {
+        ll count=1;
+        ll k=a[i];
+        for(j=i+1;j<n;j++)
+        {
+            if(a[j]>=k)
+            {
+                k=a[j];
+                count++;
+            }
+            else
+                break;
+        }
+        if(count>max)
+            max=count;
+        if(count>(n-i))
+           break;
+        if(max>=n/2&&i>n/2)
+            break;
+
+    }
+    cout<<max<<endl;
+}
