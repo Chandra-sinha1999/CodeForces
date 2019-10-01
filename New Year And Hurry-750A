@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int n,k;
+    cin>>n>>k;
+    int rem=240-k;
+    if(rem>0)
+    {
+    int i=0;
+    while(rem>=(5*i))
+    {
+        rem=rem-(5*i);
+        i++;
+    }
+    if((i-1)>n)
+        cout<<n<<endl;
+    else
+        cout<<i-1<<endl;
+    }
+    else
+        cout<<0<<endl;
+}
