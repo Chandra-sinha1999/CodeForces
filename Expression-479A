@@ -38,3 +38,10 @@ int main(void)
 
     }
 }
+//tutorial way
+int ans = a + b + c;
+ans = max(ans, (a + b) * c);
+	ans = max(ans, a * (b + c));
+	ans = max(ans, a * b * c);
+
+	cout << ans << endl;
