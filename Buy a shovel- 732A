@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int n,k;
+    cin>>n>>k;
+    int i=1;
+    int p=n;
+    while(1)
+    {
+        p=n*i;
+        if((p%10)==0||(p%10)==k)
+        {
+            cout<<i<<endl;
+            break;
+        }
+        i++;
+    }
+}
