@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int n;
+    cin>>n;
+    int a[10][10];
+    for(int j=0;j<n;j++)
+    {
+        a[0][j]=1;
+        a[j][0]=1;
+    }
+    //cout<<a[4][0];
+    for(int i=1;i<n;i++)
+    {
+        for(int j=1;j<n;j++)
+        {
+            a[i][j]=(a[i-1][j])+(a[i][j-1]);
+        }
+    }
+    cout<<a[n-1][n-1];
+}
