@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int x,y,z,a,b,c;
+    cin>>x>>y>>z>>a>>b>>c;
+    if(a>=x)
+    {
+        a=a-x;
+        if((a+b)>=y)
+        {
+            a=a-y;
+            if(a<0)
+            {
+                b=b+a;
+                a=0;
+            }
+            if((a+b+c)>=z)
+            {
+                cout<<"YES"<<endl;
+            }
+            else
+                cout<<"NO"<<endl;
+        }
+        else
+            cout<<"NO"<<endl;
+    }
+    else
+        cout<<"NO"<<endl;
+}
