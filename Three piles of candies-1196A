@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll a,b,c;
+        cin>>a>>b>>c;
+        if(a>b)
+        {
+            swap(a,b);
+        }
+        if(a>c)
+        {
+            swap(a,c);
+        }
+        if(b>c)
+        {
+            swap(b,c);
+        }
+        if(c%2==0)
+        {
+            a=a+(c/2);
+            b=b+(c/2);
+            ll x=b-a;
+            a=a+(x/2);
+            if(a<=b)
+                cout<<a<<endl;
+            if(a>b)
+                cout<<a-1<<endl;
+        }
+        else
+        {
+            a=a+(c/2)+1;
+            b=b+(c/2);
+            ll x=b-a;
+            a=a+(x/2);
+            if(a<=b)
+                cout<<a<<endl;
+            if(a>b)
+                cout<<a-1<<endl;
+        }
+    }
+}
