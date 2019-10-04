@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int k2,k3,k5,k6;
+    int sum=0;
+    cin>>k2>>k3>>k5>>k6;
+    if(k2==k5&&k5==k6)
+    {
+        sum=256*k2;
+        k2=0;
+        k5=0;
+        k6=0;
+    }
+    else if(k2<=k5&&k2<=k6)
+    {
+        k5-=k2;
+        k6-=k2;
+        sum+=256*k2;
+        k2=0;
+    }
+    else if(k5<=k2&&k5<=k6)
+    {
+        k2-=k5;
+        k6-=k5;
+        sum+=256*k5;
+        k5=0;
+    }
+    else if(k6<=k2&&k6<=k5)
+    {
+        k2-=k6;
+        k5-=k6;
+        sum+=256*k6;
+        k6=0;
+    }
+    if(k2<=k3)
+    {
+        sum+=k2*32;
+    }
+    else
+    {
+        sum+=k3*32;
+    }
+    cout<<sum<<endl;
+}
