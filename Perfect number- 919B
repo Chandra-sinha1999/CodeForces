@@ -1,0 +1,35 @@
+#include<iostream>
+#define ll long long int
+using namespace std;
+bool per(ll val)
+{
+    ll sum=0;
+    while(val>0)
+    {
+        sum+=val%10;
+        val/=10;
+    }
+    if(sum==10)
+        return true;
+    return false;
+}
+int main(void)
+{
+    ll k;
+    cin>>k;
+    ll i=19;
+    if(i==1)
+        cout<<"19"<<endl;
+    else
+    {
+    while(1)
+    {
+        if(per(i))
+            k--;
+        if(k==0)
+            break;
+        i+=9;
+    }
+    cout<<i<<endl;
+    }
+}
