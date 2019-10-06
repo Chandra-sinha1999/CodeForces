@@ -1,0 +1,88 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+/*int main(void)
+{
+    int n;
+    cin>>n;
+    int a[n];
+    int counter[n];
+    int coin=0;
+    for(int i=1;i<=n;i++)
+    {
+        counter[i]=0;
+    }
+    for(int i=1;i<=n;i++)
+    {
+        cin>>a[i];
+        counter[a[i]]++;
+    }
+    int repeat[n],missing[n],j=0,k=0;
+    for(int i=1;i<=n;i++)
+    {
+        if(counter[i]>1)
+        {
+            while(counter[i]!=1)
+            {
+            repeat[j]=i;
+            j++;
+            counter[i]--;
+            }
+        }
+        else if(counter[i]==0)
+        {
+            missing[k]=i;
+            k++;
+        }
+    }
+    //sort(repeat,repeat+j+1);
+    //sort(missing,missing+k+1);
+    for(int i=0;i<k;i++)
+    {
+        coin=coin+abs(missing[i]-repeat[i]);
+    }
+    cout<<coin<<endl;
+}*/
+bool isthere(int *a,int val,int s,int e)
+{
+    for(int i=s;i<=e;i++)
+    {
+        if(a[i]==val)
+            return true;
+    }
+    return false;
+}
+int main(void)
+{
+    int n;
+    cin>>n;
+    int a[4000];
+    int m;
+    for(m=1;m<=n;m++)
+    {
+        cin>>a[m];
+    }
+    int j=m;
+    sort(a+1,a+n+1);
+    int coin=0;
+    for(int i=1;i<=n;i++)
+    {
+        if(a[i]==a[i+1])
+        {
+            int x=1;
+            while(1)
+            {
+                if(!isthere(a,(a[i]+x),i,j-1))
+                {
+                    coin=coin+x;
+                    a[j]=a[i]+x;
+                    j++;
+                    break;
+                }
+                else
+                    x++;
+            }
+        }
+    }
+    cout<<coin<<endl;
+}
