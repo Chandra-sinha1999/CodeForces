@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+ll noofdigits(ll n)
+{
+    ll count=0;
+    while(n>0)
+    {
+      count++;
+      n=n/10;
+    }
+    return count;
+}
+int main(void)
+{
+    //input lo
+    ll n;
+    cin>>n;
+    //no.of digits find kro
+    ll k=n;
+    ll no=noofdigits(k);
+    ll count=0;
+    //count kr lo usse chhote tak
+    for(ll i=1;i<no;i++)
+    {
+        count+=(1<<i);
+    }
+    //ab bit masking kro
+    ll bitmask[10];
+    ll j=0;
+    while(n>0)
+    {
+        ll p=n%10;
+        if(p==4)
+            bitmask[j]=0;
+        else
+            bitmask[j]=1;
+        j++;
+        n=n/10;
+    }
+    //ab is mask ko utaro
+    for(ll i=0;i<j;i++)
+    {
+        if(bitmask[i]==1)
+        {
+            count+=(1<<i);
+        }
+    }
+    //print nikal lo
+    cout<<count+1<<endl;
+}
