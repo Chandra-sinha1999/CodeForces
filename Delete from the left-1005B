@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+#include<cstring>
+int main(void)
+{
+    string a,b;
+    cin>>a>>b;
+    int res;
+    if(a.length()>b.length())
+    {
+        int x=a.length()-b.length();
+        int count=0;
+        for(int i=(b.length()-1);i>=0;i--)
+        {
+            if(b[i]==a[i+x])
+            {
+                count++;
+            }
+            else
+                break;
+        }
+        //agar ek bhi equal nhi hai
+        if(count==0)
+        {
+            res=(a.length()+b.length());
+        }
+        //agar sare equal hai b ke
+        else if(count==b.length())
+        {
+            res=x;
+        }
+        //agar kuch equal hai
+        else if(count<b.length()&&count!=0)
+        {
+            res=(b.length()-count)+(a.length()-count);
+        }
+    }
+    // agar b bada hai tab
+    else if(b.length()>a.length())
+    {
+         int x=b.length()-a.length();
+        int count=0;
+        for(int i=(a.length()-1);i>=0;i--)
+        {
+            if(a[i]==b[i+x])
+            {
+                count++;
+            }
+            else
+                break;
+        }
+        //agar ek bhi equal nhi hai
+        if(count==0)
+        {
+            res=(a.length()+b.length());
+        }
+        //agar sare equal hai a ke
+        else if(count==a.length())
+        {
+            res=x;
+        }
+        //agar kuch equal hai
+        else if(count<a.length()&&count!=0)
+        {
+            res=(b.length()-count)+(a.length()-count);
+        }
+    }
+    else if(a.length()==b.length())
+    {
+        int count=0;
+        for(int i=(a.length()-1);i>=0;i--)
+        {
+            if(a[i]==b[i])
+                count++;
+            else
+                break;
+        }
+        if(count==0)
+            res=(a.length()+b.length());
+        else if(count==a.length())
+            res=0;
+        else if(count<a.length())
+        {
+            res=(a.length()-count)*2;
+        }
+    }
+    cout<<res;
+}
