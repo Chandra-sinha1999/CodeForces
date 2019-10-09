@@ -1,0 +1,109 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    string s;
+    cin>>s;
+    int a[4];
+    memset(a,0,sizeof(a));
+    char x;
+    int count=0;
+    for(int i=0;i<s.length();i+=4)
+    {
+        if(s[i]=='!')
+            count++;
+        else
+            x=s[i];
+    }
+    if(x=='R')
+    {
+        a[0]+=count;
+    }
+    else if(x=='B')
+    {
+        a[1]+=count;
+    }
+    else if(x=='Y')
+    {
+        a[2]+=count;
+    }
+    else
+    {
+        a[3]+=count;
+    }
+    count=0;
+    for(int i=2;i<s.length();i+=4)
+    {
+         if(s[i]=='!')
+            count++;
+        else
+            x=s[i];
+    }
+     if(x=='R')
+    {
+        a[0]+=count;
+    }
+    else if(x=='B')
+    {
+        a[1]+=count;
+    }
+    else if(x=='Y')
+    {
+        a[2]+=count;
+    }
+    else
+    {
+        a[3]+=count;
+    }
+    count=0;
+     for(int i=3;i<s.length();i+=4)
+    {
+         if(s[i]=='!')
+            count++;
+        else
+            x=s[i];
+    }
+     if(x=='R')
+    {
+        a[0]+=count;
+    }
+    else if(x=='B')
+    {
+        a[1]+=count;
+    }
+    else if(x=='Y')
+    {
+        a[2]+=count;
+    }
+    else
+    {
+        a[3]+=count;
+    }
+    count=0;
+    for(int i=1;i<s.length();i+=4)
+    {
+         if(s[i]=='!')
+            count++;
+        else
+            x=s[i];
+    }
+     if(x=='R')
+    {
+        a[0]+=count;
+    }
+    else if(x=='B')
+    {
+        a[1]+=count;
+    }
+    else if(x=='Y')
+    {
+        a[2]+=count;
+    }
+    else
+    {
+        a[3]+=count;
+    }
+    count=0;
+    for(int i=0;i<4;i++)
+        cout<<a[i]<<" ";
+}
