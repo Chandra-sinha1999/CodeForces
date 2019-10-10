@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    //input lo 3 string
+    string a,b,c;
+    cin>>a>>b>>c;
+    //koutsu check kro
+    if(a==b&&b==c)
+    {
+        cout<<"0"<<endl;
+    }
+    //shuntsu check kro
+    else if(a[1]==b[1]&&b[1]==c[1])
+    {
+        int x=a[0];
+        int y=b[0];
+        int z=c[0];
+        if(x>y)
+            swap(x,y);
+        if(x>z)
+            swap(x,z);
+        if(y>z)
+            swap(y,z);
+        if((z-y)==1&&(y-x)==1)
+        {
+            cout<<"0"<<endl;
+        }
+        else
+        {
+            if((z-y)<=2||(z-x)<=2||(y-x)<=2)
+            {
+                cout<<"1"<<endl;
+            }
+            else
+            {
+                cout<<"2"<<endl;
+            }
+        }
+    }
+    else
+    {
+        //koutsu
+        if(((a==b)&&(b!=c))||((b==c)&&(a!=b))||((a==c)&&(a!=b)))
+            cout<<"1"<<endl;
+        //shuntsu
+        else if(a[1]==b[1]&&a[1]!=c[1])
+        {
+            int x=a[0];
+            int y=b[0];
+            if(abs(x-y)<=2)
+                cout<<"1"<<endl;
+            else
+                cout<<"2"<<endl;
+        }
+        else if(a[1]==c[1]&&a[1]!=b[1])
+        {
+            int x=a[0];
+            int y=c[0];
+            if(abs(x-y)<=2)
+                cout<<"1"<<endl;
+            else
+                cout<<"2"<<endl;
+        }
+        else if(b[1]==c[1]&&b[1]!=a[1])
+        {
+             int x=b[0];
+            int y=c[0];
+            if(abs(x-y)<=2)
+                cout<<"1"<<endl;
+            else
+                cout<<"2"<<endl;
+        }
+        //else
+        else
+        {
+            cout<<"2"<<endl;
+        }
+    }
+}
