@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    int n,m,d;
+    cin>>m>>n>>d;
+    int a[m][n], b[n*m];
+    int k=0;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>a[i][j];
+            b[k]=a[i][j];
+            k++;
+        }
+    }
+    sort(b,b+k);
+    if((b[k-1]-b[0])==0)
+    {
+        cout<<"0"<<endl;
+    }
+    else
+    {
+    int count=0,z=0;
+    for(int i=0;i<k;i++)
+    {
+        int diff=abs(b[k/2]-b[i]);
+        if(diff%d!=0)
+        {
+            z=1;
+            break;
+        }
+        count+=diff/d;
+    }
+    if(z==0)
+        cout<<count<<endl;
+    else
+        cout<<"-1"<<endl;
+    }
+}
