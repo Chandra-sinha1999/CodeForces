@@ -1,0 +1,82 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    string s;
+    cin>>s;
+    int z=0;
+    if(s.length()==2)
+    {
+        int a=s[0]-'0';
+        int b=s[1]-'0';
+        int res=(a*10)+b;
+        if((res%8)==0)
+            cout<<"YES"<<endl<<res<<endl;
+        else if(a==0||b==0)
+            cout<<"YES"<<endl<<"0"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    else if(s.length()==1)
+    {
+        int a=s[0]-'0';
+        if(a==8||a==0)
+            cout<<"YES"<<endl<<a<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    else if(s.length()>2)
+    {
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='0'||s[i]=='8')
+            {
+                cout<<"YES"<<endl<<s[i]<<endl;
+                z=1;
+                break;
+            }
+        }
+        if(z==0)
+        {
+        for(int i=s.length()-1;i>=0;i--)
+        {
+         int a=s[i]-'0';
+         if(a%2==0)
+         {
+             for(int j=i-1;j>=0;j--)
+             {
+                 int b=s[j]-'0';
+                 int res=b*10+a;
+                 if(res%8==0)
+                 {
+                    z=1;
+                    cout<<"YES"<<endl<<res<<endl;
+                    break;
+                 }
+                 else if(res%8==4)
+                 {
+                     for(int k=j-1;k>=0;k--)
+                     {
+                         int c=s[k]-'0';
+                         if(c%2!=0)
+                         {
+                             z=1;
+                             cout<<"YES"<<endl;
+                             cout<<((c*100)+res)<<endl;
+                             break;
+                         }
+                     }
+                 }
+                 if(z==1)
+                     break;
+             }
+         }
+             if(z==1)
+                 break;
+        }
+        }
+     if(z==0)
+         cout<<"NO"<<endl;
+     }
+}
