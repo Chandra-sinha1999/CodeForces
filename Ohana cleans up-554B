@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    int n;
+    cin>>n;
+    char c[n][n];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>c[i][j];
+        }
+    }
+    int max=0;
+    for(int i=0;i<n;i++)
+    {
+        int count=1;
+        for(int j=i+1;j<n;j++)
+        {
+            int ele=0;
+            for(int k=0;k<n;k++)
+            {
+                if(c[i][k]==c[j][k])
+                    ele++;
+                else
+                    break;
+            }
+            if(ele==n)
+                count++;
+        }
+        if(max<count)
+            max=count;
+    }
+    cout<<max<<endl;
+}
