@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    int n;
+    cin>>n;
+    queue<int> s1;
+    queue<int> s2;
+    int k1;
+    cin>>k1;
+    int a[k1],c[n],d[n];
+    for(int i=0;i<k1;i++)
+    {
+        cin>>a[i];
+        s1.push(a[i]);
+    }
+    int k2;
+    cin>>k2;
+    int b[k2];
+    for(int i=0;i<k2;i++)
+    {
+        cin>>b[i];
+        s2.push(b[i]);
+    }
+    int count=0,z=0,w;
+    while(1)
+    {
+        int x = s1.front();
+        s1.pop();
+        int y = s2.front();
+        s2.pop();
+        if(x>y)
+        {
+            s1.push(y);
+            s1.push(x);
+        }
+        else
+        {
+            s2.push(x);
+            s2.push(y);
+        }
+        count++;
+        if(s1.empty())
+        {
+            w=2;
+            break;
+        }
+        if(s2.empty())
+         {
+             w=1;
+             break;
+         }
+        if(count==106)
+        {
+            cout<<"-1"<<endl;
+            z=1;
+            break;
+        }
+    }
+    if(z==0)
+    {
+        cout<<count<<" "<<w<<endl;
+    }
+}
+
