@@ -1,0 +1,97 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    string p;
+    cin>>p;
+    ll b=0,s=0,c=0;
+    for(ll i=0;i<p.length();i++)
+    {
+        if(p[i]=='B')
+            b++;
+        else if(p[i]=='S')
+            s++;
+        else if(p[i]=='C')
+            c++;
+    }
+    ll nb,ns,nc;
+    cin>>nb>>ns>>nc;
+    ll pb,ps,pc;
+    cin>>pb>>ps>>pc;
+    ll r;
+    cin>>r;
+    ll x=0,y=0,z=0,count=0;
+    while(1)
+    {
+        if(b==0)
+        {
+            x=1;
+        }
+        if(nb-b>=0)
+        {
+            nb-=b;
+        }
+        else
+        {
+            x=1;
+            ll buy=abs(nb-b);
+            ll price=(pb*buy);
+            if(r-price>=0)
+                r-=price;
+            else
+                break;
+            nb=0;
+        }
+        if(s==0)
+        {
+            y=1;
+        }
+        if(ns-s>=0)
+        {
+            ns-=s;
+        }
+        else
+        {
+            y=1;
+            ll buy=abs(ns-s);
+            ll price=(ps*buy);
+            if(r-price>=0)
+                r-=price;
+            else
+                break;
+            ns=0;
+        }
+        if(c==0)
+        {
+            z=1;
+        }
+        if(nc-c>=0)
+        {
+            nc-=c;
+        }
+        else
+        {
+            z=1;
+            ll buy=abs(nc-c);
+            ll price=(pc*buy);
+            if(r-price>=0)
+                r-=price;
+            else
+                break;
+            nc=0;
+        }
+        count++;
+        if(x==1&&y==1&&z==1)
+            break;
+    }
+    if(x==1&&y==1&&z==1)
+    {
+    ll totalcost=(pb*b)+(ps*s)+(pc*c);
+    ll res=r/totalcost;
+    cout<<res+count<<endl;
+    }
+    else
+        cout<<count<<endl;
+
+}
