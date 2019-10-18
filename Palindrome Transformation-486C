@@ -1,0 +1,90 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(void)
+{
+    int n,k;
+    cin>>n>>k;
+    char s[n];
+    for(int i=1;i<=n;i++)
+        cin>>s[i];
+    int dir[n];
+    int ud=0;
+    int j=0,min=0,max=0;
+    if(((1+n)/2)>=k)
+    {
+        for(int i=1;i<=(n+1)/2;i++)
+        {
+            if(s[i]!=s[n-i+1])
+            {
+                int x=s[i]-s[n-i+1];
+                if(abs(x)>=13)
+                {
+                    ud+=(26-abs(x));
+                }
+                else
+                    ud+=abs(x);
+                if(j==0)
+                {
+                    min=i;
+                    j=1;
+                    max=i;
+                }
+                else
+                {
+                    max=i;
+                }
+            }
+        }
+    }
+    else
+    {
+        for(int i=((n+1)/2)+1;i<=n;i++)
+        {
+            if(s[i]!=s[n-i+1])
+            {
+                int x=s[i]-s[n-i+1];
+                if(abs(x)>=13)
+                {
+                    ud+=(26-abs(x));
+                }
+                else
+                    ud+=abs(x);
+                if(j==0)
+                {
+                    min=i;
+                    j=1;
+                    max=i;
+                }
+                else
+                {
+                    max=i;
+                }
+            }
+        }
+    }
+    if(min==0&&max==0)
+        cout<<"0"<<endl;
+    else if(k<=min)
+    {
+        cout<<max-k+ud<<endl;
+    }
+    else if(k>=max)
+    {
+        cout<<k-min+ud<<endl;
+    }
+    else if(k<max&&k>min)
+    {
+        if((k-min)<(max-k))
+        {
+            int count=k-min;
+            count+=max-min;
+            cout<<count+ud<<endl;
+        }
+        else
+        {
+            int count=max-k;
+            count+=max-min;
+            cout<<count+ud<<endl;
+        }
+    }
+}
